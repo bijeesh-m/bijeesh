@@ -29,7 +29,7 @@ const Projects = () => {
                 <div className=" mb-8 flex gap-10">
                     <div className=" w-1/3 h-fit sm:w-2/5 flex  items-center gap-1">
                         <span className="  sm:m-5">🟠</span>
-                        <h1 className=" text-xs sm:text-4xl font-extrabold">Blog's Up</h1>
+                        <h1 className=" text-xs sm:text-4xl font-extrabold">Blog&apos;s Up</h1>
                     </div>
                     <div className=" text-xs sm:text-3xl w-2/3">
                         <p className=" mb-8">
@@ -49,14 +49,14 @@ const Projects = () => {
                 <div className="relative">
                     <div className="mockup-window w-full sm:w-2/3 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
-                            <Image  width={1000} height={1000} src="/blogsup.png" alt="blogsup" />
+                            <Image  width={1000} height={1000} src="/blogsup.png" alt="blogsup" priority />
                         </div>
                     </div>
                     <div className="mockup-phone hidden md:block  absolute z-30 sm:right-36 sm:top-10 ">
                         <div className="camera"></div>
                         <div className="display">
                             <div className="artboard artboard-demo phone-1">
-                                <Image width={1000}  height={500} src="/blogsupphone.png" alt="phonemockup" />
+                                <Image width={1000}  height={500} src="/blogsupphone.png" alt="phonemockup" priority />
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ const Projects = () => {
                 <div className="relative">
                     <div className="mockup-window w-full sm:w-2/3 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
-                            <Image  width={1000} height={1000} src="/pepperfry.png" alt="pepperfry" />
+                            <Image  width={1000} height={1000} src="/pepperfry.png" alt="pepperfry" priority />
                         </div>
                     </div>
                 </div>

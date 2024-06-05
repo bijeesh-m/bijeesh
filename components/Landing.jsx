@@ -28,7 +28,7 @@ const Landing = () => {
                     <div className=" flex flex-col gap-8">
                         <h1 className="text-5xl md:text-8xl font-bold text-orange-500">Hello!</h1>
                         <h1 className=" text-3xl md:text-6xl font-bold ">
-                            I<span className="text-blue-500">'</span>m Bijeesh, a Mern Stack Developer
+                            I<span className="text-blue-500">&apos;</span>m Bijeesh, a Mern Stack Developer
                         </h1>
                     </div>
                 </motion.div>
