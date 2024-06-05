@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useContext, useEffect, useRef, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { ScrollTargetContext } from "./ScrollComp";
+import Image from "next/image";
 
 const Projects = () => {
     const { targetSectionRef } = useContext(ScrollTargetContext);
@@ -48,14 +49,14 @@ const Projects = () => {
                 <div className="relative">
                     <div className="mockup-window w-full sm:w-2/3 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
-                            <img src="/blogsup.png" alt="blogsup" />
+                            <Image  width={1000} height={1000} src="/blogsup.png" alt="blogsup" />
                         </div>
                     </div>
                     <div className="mockup-phone hidden md:block  absolute z-30 sm:right-36 sm:top-10 ">
                         <div className="camera"></div>
                         <div className="display">
                             <div className="artboard artboard-demo phone-1">
-                                <img src="/blogsupphone.png" alt="phonemockup" />
+                                <Image width={1000}  height={500} src="/blogsupphone.png" alt="phonemockup" />
                             </div>
                         </div>
                     </div>
@@ -87,7 +88,7 @@ const Projects = () => {
                 <div className="relative">
                     <div className="mockup-window w-full sm:w-2/3 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
-                            <img src="/amazon.png" alt="amazon" />
+                            <Image width={1000} height={1000}  src="/amazon.png" alt="amazon" priority />
                         </div>
                     </div>
                 </div>
@@ -117,7 +118,7 @@ const Projects = () => {
                 <div className="relative">
                     <div className="mockup-window w-full sm:w-2/3 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
-                            <img src="/pepperfry.png" alt="pepperfry" />
+                            <Image  width={1000} height={1000} src="/pepperfry.png" alt="pepperfry" />
                         </div>
                     </div>
                 </div>
