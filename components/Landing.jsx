@@ -7,7 +7,7 @@ import { FaGithub } from "react-icons/fa";
 
 const Landing = () => {
     return (
-        <div className="hero mt-16 ">
+        <div className="hero mt-16 px-40">
             <div className="hero-content flex-col lg:flex-row-reverse gap-10">
                 <motion.div
                     className="  rounded-full border-8 border-blue-600 "
