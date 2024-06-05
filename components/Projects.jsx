@@ -102,7 +102,7 @@ const Projects = () => {
                     </div>
                     <div className=" text-xs sm:text-3xl w-2/3">
                         <p className=" mb-8">
-                            This project replicates Pepperfry's key features, allowing users to browse and purchase
+                            This project replicates Pepperfry&apos;s key features, allowing users to browse and purchase
                             furniture products seamlessly
                         </p>
                         <a href="https://furnitureshope.netlify.app/" target="blank">
