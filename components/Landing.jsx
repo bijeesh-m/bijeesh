@@ -1,6 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaDownload } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Landing = () => {
     return (
@@ -30,6 +33,21 @@ const Landing = () => {
                         <h1 className=" text-3xl md:text-6xl font-bold ">
                             I<span className="text-blue-500">&apos;</span>m Bijeesh, a Mern Stack Developer
                         </h1>
+                    </div>
+                    <div className=" mt-16 flex items-center gap-6">
+                        <a
+                            href="/B.Mern Stack developer.pdf"
+                            download
+                            className=" bg-white py-2 px-3 text-black rounded-sm  flex w-fit items-center gap-2"
+                        >
+                            <p>Download CV</p> <FaDownload />
+                        </a>
+                        <a href="https://www.linkedin.com/in/bijeeshm" target="blank">
+                            <FaLinkedin color="white" size={30} />
+                        </a>
+                        <a href="https://github.com/bijeesh-m" target="blank">
+                            <FaGithub color="white" size={30} />
+                        </a>
                     </div>
                 </motion.div>
             </div>

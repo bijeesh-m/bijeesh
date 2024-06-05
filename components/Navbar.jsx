@@ -1,32 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useContext } from "react";
-
-import { ScrollTargetContext } from "./ScrollComp";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-    const { targetSectionRef } = useContext(ScrollTargetContext);
-    console.log(targetSectionRef);
+    const [header, setHeader] = useState(false);
 
-    const handleClick = () => {
-        console.log("ksjfljsk");
-        if (targetSectionRef.current) {
-            console.log("jjh");
-            const targetSectionOffset = targetSectionRef.current.offsetTop;
+    const scrollHeader = () => {
+        if (window.scrollY >= 50) {
+            setHeader(true);
+        } else {
+            setHeader(false);
+        }
+    };
 
-            // Smooth Scrolling (Optional)
-            const scrollOptions = {
+    useEffect(() => {
+        window.addEventListener("scroll", scrollHeader);
+        return () => window.removeEventListener("scroll", scrollHeader);
+    }, []);
+
+    const scrollToWork = () => {
+        const element = document.getElementById("work");
+
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop + -150,
                 behavior: "smooth",
-                block: "start", // Scroll to the top of the section
-            };
-
-            window.scrollTo(0, targetSectionOffset, scrollOptions); // Scroll to position
+            });
+        } else {
+            console.warn('Element with ID "work" not found.');
         }
     };
 
     return (
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+        <motion.div
+            className={header ? "fixed top-0 w-full bg-gray-900 bg-opacity-90 z-50" : ""}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+        >
             <nav className="navbar bg-transparent sticky p-3 ">
                 <div className="flex-1">
                     <a className="btn btn-ghost text-2xl ">Bijeesh</a>
@@ -34,7 +46,15 @@ const Navbar = () => {
                 <div className="flex-none ">
                     <ul className="menu menu-horizontal px-1 text-sm md:text-lg">
                         <li>
-                            <a onClick={handleClick}>Work</a>
+                            <a
+                                href="#work"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToWork();
+                                }}
+                            >
+                                Work
+                            </a>
                         </li>
                         <li>
                             <a>About</a>
