@@ -7,10 +7,10 @@ import { FaGithub } from "react-icons/fa";
 
 const Landing = () => {
     return (
-        <div className="hero mt-16 sm:px-20">
+        <div className="hero mt-28 md:mt-36  lg:mt-40">
             <div className="hero-content flex-col lg:flex-row-reverse gap-10">
                 <motion.div
-                    className="  rounded-full border-8 border-blue-600 "
+                    className="  rounded-full border-8    shadow-lg border-blue-700 "
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
@@ -20,21 +20,28 @@ const Landing = () => {
                     }}
                 >
                     <Image
-                        width={500}
-                        height={500}
+                        width={200}
+                        height={200}
                         src="/profile-img.jpg"
                         alt="profile"
-                        className=" rounded-full shadow-2xl w-xs md:max-w-sm "
+                        className=" rounded-full shadow-2xl w-xs md:hidden "
+                    />
+                    <Image
+                        width={400}
+                        height={400}
+                        src="/profile-img.jpg"
+                        alt="profile"
+                        className=" rounded-full shadow-2xl w-xs md:max-w-sm hidden md:block"
                     />
                 </motion.div>
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
-                    <div className=" flex flex-col gap-8">
+                    <div className=" flex flex-col gap-5">
                         <h1 className="text-5xl md:text-8xl font-bold text-orange-500">Hello!</h1>
-                        <h1 className=" text-3xl md:text-6xl font-bold ">
+                        <h1 className=" text-2xl  sm:text-5xl md:text-6xl font-bold ">
                             I<span className="text-blue-500">&apos;</span>m Bijeesh, a Mern Stack Developer
                         </h1>
                     </div>
-                    <div className=" mt-16 flex items-center gap-6">
+                    <div className=" mt-7 flex items-center gap-6">
                         <a
                             href="/B.Mern Stack developer.pdf"
                             download

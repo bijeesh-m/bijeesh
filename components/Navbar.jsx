@@ -4,63 +4,87 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-    const [header, setHeader] = useState(false);
+    const [show, setShow] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
-    const scrollHeader = () => {
-        if (window.scrollY >= 50) {
-            setHeader(true);
-        } else {
-            setHeader(false);
+    const handleScroll = () => {
+        if (typeof window !== "undefined") {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY) {
+                setShow(false);
+            } else {
+                setShow(true);
+            }
+
+            setLastScrollY(currentScrollY);
         }
     };
-
     useEffect(() => {
-        window.addEventListener("scroll", scrollHeader);
-        return () => window.removeEventListener("scroll", scrollHeader);
-    }, []);
+        if (typeof window !== "undefined") {
+            window.addEventListener("scroll", handleScroll);
 
-    const scrollToWork = () => {
-        const element = document.getElementById("work");
+            return () => {
+                window.removeEventListener("scroll", handleScroll);
+            };
+        }
+    }, [lastScrollY]);
+
+    const scrollTo = (id) => {
+        const element = document.getElementById(id);
 
         if (element) {
             window.scrollTo({
                 top: element.offsetTop + -150,
                 behavior: "smooth",
             });
-        } else {
-            console.warn('Element with ID "work" not found.');
         }
     };
 
     return (
         <motion.div
-            className={header ? "fixed top-0 w-full bg-gray-900 bg-opacity-90 z-50" : ""}
+            className={show? "block fixed top-0 w-full bg-black border-b border-b-violet-900 shadow-md shadow-violet-950 z-50": "hidden"}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
         >
-            <nav className="navbar bg-transparent sticky p-3 ">
+            <nav className="navbar bg-transparent sticky p-3  font-mono font-bold ">
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-2xl ">Bijeesh</a>
+                    <a className="btn btn-ghost text-2xl">Bijeesh</a>
                 </div>
                 <div className="flex-none ">
-                    <ul className="menu menu-horizontal px-1 text-sm md:text-lg">
+                    <ul className="menu menu-horizontal px-1 text-xs sm:text-sm md:text-lg">
                         <li>
                             <a
                                 href="#work"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    scrollToWork();
+                                    scrollTo("work");
                                 }}
                             >
-                                Work
+                                Projects
                             </a>
                         </li>
                         <li>
-                            <a>About</a>
+                            <a
+                                href="#about"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollTo("about");
+                                }}
+                            >
+                                About
+                            </a>
                         </li>
                         <li>
-                            <a>Contact</a>
+                            <a
+                                href="#about"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollTo("contact");
+                                }}
+                            >
+                                Contact
+                            </a>
                         </li>
                     </ul>
                 </div>

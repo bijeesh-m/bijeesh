@@ -20,16 +20,16 @@ const Projects = () => {
         transition: { duration: 1, ease: "easeInOut" },
     };
     return (
-        <div className=" w-full sm:p-10 p-2  space-y-8 mt-20 project-font scroll-mt-96" id="work">
-            <h1 className=" text-5xl w-full text-center">Projects</h1>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }}>
-                <hr className="sm:m-1 m-0 my-10 sm:mb-40" />
+        <div className=" w-full  space-y-20 md:mt-20 project-font mb-20 " id="work">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.1 }}>
+                <h1 className=" text-5xl w-full mb-10 md:mb-20">Projects</h1>
+                <hr className="sm:m-1 m-0 my-10 sm:mb-20" />
                 <div className=" mb-8 flex gap-10">
                     <div className=" w-1/3 h-fit sm:w-2/5 flex  items-center gap-1">
                         <span className="  sm:m-5">🟠</span>
                         <h1 className=" text-xs sm:text-4xl font-extrabold">Blog&apos;s Up</h1>
                     </div>
-                    <div className=" text-xs sm:text-3xl w-2/3">
+                    <div className=" text-xs sm:text-2xl md:text-3xl w-2/3">
                         <p className=" mb-8">
                             A blog website serves as an online platform where individuals can regularly publish written
                             content in the form of articles, posts, or entries
@@ -45,23 +45,23 @@ const Projects = () => {
                     </div>
                 </div>
                 <div className="relative">
-                    <div className="mockup-window w-full sm:w-2/3 border border-black rounded-lg bg-base-300 sm:ml-16">
+                    <div className="mockup-window w-full sm:w-4/5 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
                             <Image width={1000} height={1000} src="/blogsup.png" alt="blogsup" priority />
                         </div>
                     </div>
-                    <div className="mockup-phone hidden md:block  absolute z-30 sm:right-36 sm:top-10 ">
+                    <div className="mockup-phone hidden xl:block  absolute z-30 sm:right-14 sm:top-32 ">
                         <div className="camera"></div>
                         <div className="display">
                             <div className="artboard artboard-demo phone-1">
-                                <Image width={1000} height={500} src="/blogsupphone.png" alt="phonemockup" priority />
+                                <Image width={1000} height={100} src="/blogsupphone.png" alt="phonemockup" priority />
                             </div>
                         </div>
                     </div>
                 </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }}>
-                <hr className="sm:m-1 m-0 my-10 sm:my-44" />
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.1 }}>
+                <hr className="sm:m-1 m-0 my-10 sm:mb-20 sm:mt-40" />
                 <div className=" mb-8 flex gap-10">
                     <div className=" w-1/3 h-fit sm:w-2/5 flex  gap-1 ">
                         <span className="  sm:m-5  ">🟠</span>
@@ -84,15 +84,15 @@ const Projects = () => {
                     </div>
                 </div>
                 <div className="relative">
-                    <div className="mockup-window w-full sm:w-2/3 border border-black rounded-lg bg-base-300 sm:ml-16">
+                    <div className="mockup-window w-full sm:w-4/5 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
                             <Image width={1000} height={1000} src="/amazon.png" alt="amazon" priority />
                         </div>
                     </div>
                 </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }}>
-                <hr className="sm:m-1 m-0 my-10 sm:my-44" />
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.1 }}>
+                <hr className="sm:m-1 m-0 my-10 sm:mb-20" />
                 <div className=" mb-8 flex gap-10">
                     <div className=" w-1/3 h-fit sm:w-2/5 flex  gap-1 ">
                         <span className="  sm:m-5  ">🟠</span>
@@ -114,7 +114,7 @@ const Projects = () => {
                     </div>
                 </div>
                 <div className="relative">
-                    <div className="mockup-window w-full sm:w-2/3 border border-black rounded-lg bg-base-300 sm:ml-16">
+                    <div className="mockup-window w-full sm:w-4/5 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
                             <Image width={1000} height={1000} src="/pepperfry.png" alt="pepperfry" priority />
                         </div>
