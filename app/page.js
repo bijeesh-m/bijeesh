@@ -5,7 +5,7 @@ import Projects from "@/components/Projects";
 
 export default function Home() {
     return (
-        <div className=" px-5 md:px-20  ">
+        <div className=" px-5 md:px-10  ">
             <Landing />
             <About/>
             <Projects />
