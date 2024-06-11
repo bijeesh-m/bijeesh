@@ -42,10 +42,14 @@ const Navbar = () => {
     };
 
     return (
-        <motion.div
-            className={show? "block fixed top-0 w-full bg-black border-b border-b-violet-900 shadow-md shadow-violet-950 z-50": "hidden"}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+        <div
+            className={
+                show
+                    ? "block fixed top-0 w-full bg-black border-b border-b-violet-900 shadow-md shadow-violet-950 z-50"
+                    : "hidden"
+            }
+            // initial={{ opacity: 0 }}
+            // whileInView={{ opacity: 1 }}
         >
             <nav className="navbar bg-transparent sticky p-3  font-mono font-bold ">
                 <div className="flex-1">
@@ -89,7 +93,7 @@ const Navbar = () => {
                     </ul>
                 </div>
             </nav>
-        </motion.div>
+        </div>
     );
 };
 
