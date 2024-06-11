@@ -47,7 +47,7 @@ const Projects = () => {
                 <div className="relative">
                     <div className="mockup-window w-full sm:w-4/5 border border-black rounded-lg bg-base-300 sm:ml-16">
                         <div className="flex justify-center  bg-base-200">
-                            <Image width={1000} height={1000} src="/blogsup.png" alt="blogsup" priority />
+                            <Image width={1100} height={1000} src="/blogsup.png" alt="blogsup" priority />
                         </div>
                     </div>
                     <div className="mockup-phone hidden xl:block  absolute z-30 sm:right-14 sm:top-32 ">
