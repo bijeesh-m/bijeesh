@@ -90,15 +90,15 @@ const Navbar = () => {
         //         </div>
         //     </nav>
         // </motion.div>
-        <div className=" text-white">
-            <nav className=" flex justify-between p-5 text-lg">
+        <div className=" text-white w-screen">
+            <div className=" flex justify-between p-5 text-lg">
                 <div>Bijeesh</div>
                 <div className=" w-1/3 flex justify-between ">
                     <p>Projects</p>
                     <p>About</p>
                     <p>Contact</p>
                 </div>
-            </nav>
+            </div>
         </div>
     );
 };
