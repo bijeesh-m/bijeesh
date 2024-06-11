@@ -53,7 +53,7 @@ const Navbar = () => {
         >
             <nav className="navbar bg-transparent sticky p-3  font-mono font-bold ">
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-2xl">Bijeesh</a>
+                    <a className="btn btn-ghost text-lg sm:text-xl md:text-2xl">Bijeesh</a>
                 </div>
                 <div className="flex-none ">
                     <ul className="menu menu-horizontal px-1 text-xs sm:text-sm md:text-lg">
