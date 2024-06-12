@@ -47,7 +47,7 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
         >
-            <nav className="navbar bg-transparent sticky p-3  font-mono font-bold text-white">
+            <nav className="navbar bg-transparent sticky   font-mono font-bold text-white">
                 <div className="flex-1 ">
                     <a className="btn btn-ghost sm:text-2xl  text-fuchsia-700 sm:text-white shadow-sm sm:shadow-none shadow-fuchsia-700 sm:border-none">Bijeesh</a>
                 </div>

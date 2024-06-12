@@ -7,10 +7,10 @@ import { FaGithub } from "react-icons/fa";
 
 const Landing = () => {
     return (
-        <div className="hero mt-28 md:mt-36  lg:mt-40">
+        <div className="hero mt-28  ">
             <div className="hero-content flex-col lg:flex-row-reverse gap-10">
                 <motion.div
-                    className="  rounded-full border-8    shadow-lg border-blue-700 "
+                    className="  rounded-full   shadow-md border-rose-700 shadow-rose-500 border-4 "
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
@@ -22,16 +22,23 @@ const Landing = () => {
                     <Image
                         width={200}
                         height={200}
-                        src="/profile-img.jpg"
+                        src="/profile-pic (2).png"
                         alt="profile"
                         className=" rounded-full shadow-2xl w-xs md:hidden "
                     />
                     <Image
+                        width={350}
+                        height={350}
+                        src="/profile-pic (2).png"
+                        alt="profile"
+                        className=" rounded-full shadow-2xl w-xs md:max-w-sm hidden md:block xl:hidden"
+                    />
+                    <Image
                         width={400}
                         height={400}
-                        src="/profile-img.jpg"
+                        src="/profile-pic (2).png"
                         alt="profile"
-                        className=" rounded-full shadow-2xl w-xs md:max-w-sm hidden md:block"
+                        className="  rounded-full   shadow-2xl w-xs md:max-w-sm hidden xl:block"
                     />
                 </motion.div>
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
