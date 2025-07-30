@@ -3,35 +3,110 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
+import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
-    const [isMovingLeft, setIsMovingLeft] = useState(true);
+  const [isMovingLeft, setIsMovingLeft] = useState(true);
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setIsMovingLeft((prev) => !prev);
-        }, 1000);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIsMovingLeft((prev) => !prev);
+    }, 1000);
 
-        return () => clearInterval(intervalId);
-    }, []);
+    return () => clearInterval(intervalId);
+  }, []);
 
-    const animationPropsArrow = {
-        x: isMovingLeft ? 0 : 10,
-        transition: { duration: 1, ease: "easeInOut" },
-    };
+  const animationPropsArrow = {
+    x: isMovingLeft ? 0 : 10,
+    transition: { duration: 1, ease: "easeInOut" },
+  };
 
-    const animationProps = {
-        initial: { opacity: 0 },
-        whileInView: { opacity: 1 },
-        transition: { delay: 0.1, duration: 0.3 },
-    };
-    return (
-        <div className=" w-full  space-y-20 md:mt-20 project-font mb-20 " id="work">
-            <motion.h1 {...animationProps} className=" text-5xl w-full mb-10 md:mb-20">
-                Projects
-            </motion.h1>
-            <motion.hr {...animationProps} className="sm:m-1 m-0 my-10 sm:mb-20" />
-            <div className="">
+  const animationProps = {
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+    transition: { delay: 0.1, duration: 0.3 },
+  };
+
+  const projects = [
+    {
+      title: "E-Tender Platform",
+      description:
+        "A platform to manage tenders, bids, and user roles for government projects.",
+      image: "/images/etender.jpg",
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "https://yourprojectlink.com",
+    },
+    {
+      title: "E-Tender Platform",
+      description:
+        "A platform to manage tenders, bids, and user roles for government projects.",
+      image: "/images/etender.jpg",
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "https://yourprojectlink.com",
+    },
+    {
+      title: "E-Tender Platform",
+      description:
+        "A platform to manage tenders, bids, and user roles for government projects.",
+      image: "/images/etender.jpg",
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "https://yourprojectlink.com",
+    },
+    {
+      title: "E-Tender Platform",
+      description:
+        "A platform to manage tenders, bids, and user roles for government projects.",
+      image: "/images/etender.jpg",
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "https://yourprojectlink.com",
+    },
+    {
+      title: "E-Tender Platform",
+      description:
+        "A platform to manage tenders, bids, and user roles for government projects.",
+      image: "/images/etender.jpg",
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "https://yourprojectlink.com",
+    },
+    {
+      title: "E-Tender Platform",
+      description:
+        "A platform to manage tenders, bids, and user roles for government projects.",
+      image: "/images/etender.jpg",
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "https://yourprojectlink.com",
+    },
+    {
+      title: "E-Tender Platform",
+      description:
+        "A platform to manage tenders, bids, and user roles for government projects.",
+      image: "/images/etender.jpg",
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "https://yourprojectlink.com",
+    },
+    // Add more projects as needed
+  ];
+
+  return (
+    <div
+      className=" w-full px-5 md:px-16  space-y-20 mt-20 md:mt-20 project-font mb-20 "
+      id="work"
+    >
+      <motion.h1
+        {...animationProps}
+        className=" text-5xl w-full "
+      >
+        Projects
+      </motion.h1>
+      {/* <motion.hr {...animationProps} className="sm:m-1 m-0 " /> */}
+<section className=" bg-gray-50 dark:bg-black min-h-screen">
+      <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </div>
+    </section>
+      {/* <div className="">
                 <div className=" mb-8 flex gap-10">
                     <motion.div {...animationProps} className=" w-1/3 h-fit sm:w-2/5 flex  items-center gap-1">
                         <span className="  sm:m-5">🟠</span>
@@ -136,9 +211,9 @@ const Projects = () => {
                         </div>
                     </div>
                 </motion.div>
-            </div>
-        </div>
-    );
+            </div> */}
+    </div>
+  );
 };
 
 export default Projects;

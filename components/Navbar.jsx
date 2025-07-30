@@ -4,93 +4,78 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-    const [show, setShow] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
+  const [show, setShow] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-    const handleScroll = () => {
-        if (typeof window !== "undefined") {
-            const currentScrollY = window.scrollY;
+  const handleScroll = () => {
+    if (typeof window !== "undefined") {
+      const currentScrollY = window.scrollY;
 
-            if (currentScrollY > lastScrollY) {
-                setShow(false);
-            } else {
-                setShow(true);
-            }
+      if (currentScrollY === 0) {
+        setShow(false);
+      } else {
+        setShow(true);
+      }
 
-            setLastScrollY(currentScrollY);
-        }
-    };
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            window.addEventListener("scroll", handleScroll);
+      setLastScrollY(currentScrollY);
+    }
+  };
 
-            return () => {
-                window.removeEventListener("scroll", handleScroll);
-            };
-        }
-    }, [lastScrollY]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [lastScrollY]);
 
-    const scrollTo = (id) => {
-        const element = document.getElementById(id);
+  const scrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: "smooth",
+      });
+    }
+  };
 
-        if (element) {
-            window.scrollTo({
-                top: element.offsetTop + -150,
-                behavior: "smooth",
-            });
-        }
-    };
-
-    return (
-        <motion.div
-            className={show? "block fixed top-0 w-full bg-black border-b border-b-violet-900 shadow-md shadow-violet-950 z-50": "hidden"}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-        >
-            <nav className="navbar bg-transparent sticky   font-mono font-bold text-white">
-                <div className="flex-1 ">
-                    <a className="btn btn-ghost sm:text-2xl  text-fuchsia-700 sm:text-white shadow-sm sm:shadow-none shadow-fuchsia-700 sm:border-none">Bijeesh</a>
-                </div>
-                <div className="flex-none ">
-                    <ul className="menu menu-horizontal px-1 text-xs sm:text-sm md:text-lg">
-                        <li>
-                            <a
-                                href="#work"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    scrollTo("work");
-                                }}
-                            >
-                                Projects
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#about"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    scrollTo("about");
-                                }}
-                            >
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#about"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    scrollTo("contact");
-                                }}
-                            >
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </motion.div>
-    );
+  return (
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={show ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0  left-0 w-full z-50 bg-white/5 backdrop-blur-md shadow-sm"
+    >
+      <nav style={{textShadow:"1px 1px 1px 5px "}} className="max-w-7xl mx-auto px-4 text-white sm:px-6 md:px-16 h-16 flex items-center justify-between text-sm font-medium ">
+        <div className="text-xl font-extrabold ">Bijeesh</div>
+        <ul className="flex space-x-6">
+          <li>
+            <button
+              onClick={() => scrollTo("work")}
+              className="hover:text-violet-700 transition-colors"
+            >
+              Projects
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollTo("about")}
+              className="hover:text-violet-700 transition-colors"
+            >
+              About
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => scrollTo("contact")}
+              className="hover:text-violet-700 transition-colors"
+            >
+              Contact
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </motion.div>
+  );
 };
 
 export default Navbar;
