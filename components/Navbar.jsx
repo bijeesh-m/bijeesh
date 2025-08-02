@@ -43,9 +43,9 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={show ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0  left-0 w-full z-50 bg-white/5 backdrop-blur-md shadow-sm"
+      className="fixed top-0  left-0 w-full z-50 bg-white backdrop-blur-md shadow-sm"
     >
-      <nav style={{textShadow:"1px 1px 1px 5px "}} className="max-w-7xl mx-auto px-4 text-white sm:px-6 md:px-16 h-16 flex items-center justify-between text-sm font-medium ">
+      <nav style={{textShadow:"1px 1px 1px 5px "}} className="max-w-7xl mx-auto px-4 text-black sm:px-6 md:px-16 h-16 flex items-center justify-between text-sm font-medium ">
         <div className="text-xl font-extrabold ">Bijeesh</div>
         <ul className="flex space-x-6">
           <li>

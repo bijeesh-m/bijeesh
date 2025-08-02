@@ -1,24 +1,40 @@
 // ProjectCard.jsx
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-const ProjectCard = ({ title, description, image, tags, link }) => {
+const ProjectCard = ({ title, description, images, tags, link }) => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 2000); // 2 seconds per image
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <motion.div
       className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow duration-300"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
       initial={{ opacity: 0, y: 30 }}
-    //   animate={{ opacity: 1, y: 0 }}
-      whileInView={{opacity:1}}
+      //   animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="h-48 w-full overflow-hidden">
-        <img
-        //   src={image}
-          src="/amazon.png"
-          alt={title}
-          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-        />
+      <div className="h-48 w-full overflow-hidden relative rounded-lg">
+        <AnimatePresence>
+          <motion.img
+            key={images[current]}
+            src={images[current]}
+            alt={`slide-${current}`}
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: "0%", opacity: 1 }}
+            exit={{ x: "-100%", opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute top-0 left-0 h-full w-full object-cover"
+          />
+        </AnimatePresence>
       </div>
 
       <div className="p-5">

@@ -29,58 +29,10 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-Tender Platform",
+      title: "OpenSoul - Confession Platform",
       description:
-        "A platform to manage tenders, bids, and user roles for government projects.",
-      image: "/images/etender.jpg",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "https://yourprojectlink.com",
-    },
-    {
-      title: "E-Tender Platform",
-      description:
-        "A platform to manage tenders, bids, and user roles for government projects.",
-      image: "/images/etender.jpg",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "https://yourprojectlink.com",
-    },
-    {
-      title: "E-Tender Platform",
-      description:
-        "A platform to manage tenders, bids, and user roles for government projects.",
-      image: "/images/etender.jpg",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "https://yourprojectlink.com",
-    },
-    {
-      title: "E-Tender Platform",
-      description:
-        "A platform to manage tenders, bids, and user roles for government projects.",
-      image: "/images/etender.jpg",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "https://yourprojectlink.com",
-    },
-    {
-      title: "E-Tender Platform",
-      description:
-        "A platform to manage tenders, bids, and user roles for government projects.",
-      image: "/images/etender.jpg",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "https://yourprojectlink.com",
-    },
-    {
-      title: "E-Tender Platform",
-      description:
-        "A platform to manage tenders, bids, and user roles for government projects.",
-      image: "/images/etender.jpg",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "https://yourprojectlink.com",
-    },
-    {
-      title: "E-Tender Platform",
-      description:
-        "A platform to manage tenders, bids, and user roles for government projects.",
-      image: "/images/etender.jpg",
+        "A platform to share confessions for students and interact with other confessions, students can join multiple confession groups.",
+      images: ["/amazon.png","/blogsup.png","/Bijeesh M.png"],
       tags: ["React", "Node.js", "MongoDB"],
       link: "https://yourprojectlink.com",
     },

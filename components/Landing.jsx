@@ -10,40 +10,40 @@ const Landing = () => {
     <div className="hero w-screen  h-screen px-5 md:px-14   ">
       <div className="hero-content flex-col lg:flex-row-reverse gap-10">
         <motion.div
-          className="  rounded-full    shadow-md border-orange-700 shadow-orange-500 border-4 "
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
+          className="   box    shadow-md   "
+          initial={{ opacity: 0, scale: 0.5, x:100 }}
+          animate={{ opacity: 1, scale: 1 , x:0}}
           transition={{
-            duration: 0.8,
-            delay: 0.1,
-            ease: [0, 0.71, 0.2, 1.01],
+            duration: 1,
+            // ease: [0, 0.71, 0.2, 1.01],
           }}
         >
           <Image
             width={200}
             height={200}
-            src="/profile-pic (3).png"
+            
+            src="/bijeesh.png"
             alt="profile"
-            className=" rounded-full shadow-2xl w-xs md:hidden "
+            className="  shadow-2xl w-xs md:hidden "
           />
           <Image
             width={350}
             height={350}
-            src="/profile-pic (3).png"
+            src="/bijeesh.png"
             alt="profile"
-            className=" rounded-full shadow-2xl w-xs  md:max-w-sm hidden md:block xl:hidden"
+            className="  shadow-2xl w-xs  md:max-w-sm hidden md:block xl:hidden"
           />
           <Image
             width={400}
             height={400}
-            src="/profile-pic (3).png"
+            src="/bijeesh.png"
             alt="profile"
-            className="   rounded-full shadow-2xl w-xs md:max-w-sm hidden xl:block"
+            className="  shadow-2xl w-xs md:max-w-sm hidden xl:block"
           />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, x:-100, scale:.5 }}
+          animate={{ opacity: 1, x:0, scale:1 }}
           transition={{ duration: 1 }}
         >
           <div className=" flex flex-col gap-5">
@@ -57,7 +57,7 @@ const Landing = () => {
           </div>
           <div className=" mt-7 flex items-center gap-6">
             <a
-              href="/B.Mern Stack developer.pdf"
+              href="/Bijeesh M.pdf"
               download
               className=" bg-white py-2 px-3 text-black rounded-sm  flex w-fit items-center gap-2"
             >

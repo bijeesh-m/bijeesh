@@ -5,9 +5,9 @@ import Image from "next/image";
 const Skills = () => {
   return (
     <motion.div
-      initial={{ x: 100,  }}
+      initial={{ x: 200,  }}
       whileInView={{ x: 0, opacity: 1 }}
-      transition={{duration:.5}}
+      transition={{duration:.8}}
       className=" px-5 md:px-16"
     >
       <div className=" md:py-10 w-full">
