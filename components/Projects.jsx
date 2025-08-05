@@ -32,7 +32,19 @@ const Projects = () => {
       title: "OpenSoul - Confession Platform",
       description:
         "A platform to share confessions for students and interact with other confessions, students can join multiple confession groups.",
-      images: ["/amazon.png","/blogsup.png","/Bijeesh M.png"],
+      images: [
+        "/opensoul/Screenshot (1).png",
+        "/opensoul/Screenshot (2).png",
+        "/opensoul/Screenshot (6).png",
+      ],
+      tags: ["React", "Node.js", "MongoDB"],
+      link: "https://opensoul.onrender.com",
+    },
+    {
+      title: "FunChat",
+      description:
+        "A platform to chat with friends",
+      images: ["/funchat/Screenshot (8).png","/amazon.png", "/blogsup.png"],
       tags: ["React", "Node.js", "MongoDB"],
       link: "https://yourprojectlink.com",
     },
@@ -44,20 +56,17 @@ const Projects = () => {
       className=" w-full px-5 md:px-16  space-y-20 mt-20 md:mt-20 project-font mb-20 "
       id="work"
     >
-      <motion.h1
-        {...animationProps}
-        className=" text-5xl w-full "
-      >
+      <motion.h1 {...animationProps} className=" text-5xl w-full ">
         Projects
       </motion.h1>
       {/* <motion.hr {...animationProps} className="sm:m-1 m-0 " /> */}
-<section className=" bg-gray-50 dark:bg-black min-h-screen">
-      <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
-      </div>
-    </section>
+      <section className="   min-h-screen">
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+      </section>
       {/* <div className="">
                 <div className=" mb-8 flex gap-10">
                     <motion.div {...animationProps} className=" w-1/3 h-fit sm:w-2/5 flex  items-center gap-1">
