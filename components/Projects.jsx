@@ -42,11 +42,10 @@ const Projects = () => {
     },
     {
       title: "FunChat",
-      description:
-        "A platform to chat with friends",
-      images: ["/funchat/Screenshot (8).png","/amazon.png", "/blogsup.png"],
+      description: "A platform to chat with friends",
+      images: ["/funchat/Screenshot (8).png", "/amazon.png", "/blogsup.png"],
       tags: ["React", "Node.js", "MongoDB"],
-      link: "https://yourprojectlink.com",
+      link: "https://funchat-tq65.onrender.com",
     },
     // Add more projects as needed
   ];
