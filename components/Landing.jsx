@@ -22,21 +22,21 @@ const Landing = () => {
             width={200}
             height={200}
             
-            src="/bijeesh.png"
+            src="/Bijeesh M.png"
             alt="profile"
             className="  shadow-2xl w-xs md:hidden "
           />
           <Image
             width={350}
             height={350}
-            src="/bijeesh.png"
+            src="/Bijeesh M.png"
             alt="profile"
             className="  shadow-2xl w-xs  md:max-w-sm hidden md:block xl:hidden"
           />
           <Image
             width={400}
             height={400}
-            src="/bijeesh.png"
+            src="/Bijeesh M.png"
             alt="profile"
             className="  shadow-2xl w-xs md:max-w-sm hidden xl:block"
           />
