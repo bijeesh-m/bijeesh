@@ -1,73 +1,76 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaDownload } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
+import { FaDownload, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Landing = () => {
   return (
-    <div className="hero w-screen  h-screen px-5 md:px-14   ">
-      <div className="hero-content flex-col lg:flex-row-reverse gap-10">
+    <div className="hero w-screen font-mono  bg-gradient-to-br from-white to-rose-200 h-screen px-5 md:px-48">
+      <div className="relative flex items-center h-full flex-col lg:flex-row-reverse gap-10">
         <motion.div
-          className="   box    shadow-md   "
-          initial={{ opacity: 0, scale: 0.5, x:100 }}
-          animate={{ opacity: 1, scale: 1 , x:0}}
-          transition={{
-            duration: 1,
-            // ease: [0, 0.71, 0.2, 1.01],
-          }}
+          className="w-1/2 relative h-full flex items-end justify-center"
+          initial={{ opacity: 0,  }}
+          animate={{ opacity: 1,}}
+          transition={{ duration: 1 }}
         >
+          {/* Small screens */}
           <Image
             width={200}
             height={200}
-            
             src="/Bijeesh.png"
             alt="profile"
-            className="  shadow-2xl w-xs md:hidden "
+            className="w-xs md:hidden"
           />
+
+          {/* Medium screens */}
           <Image
             width={350}
             height={350}
             src="/Bijeesh.png"
             alt="profile"
-            className="  shadow-2xl w-xs  md:max-w-sm hidden md:block xl:hidden"
+            className="w-xs md:max-w-sm hidden md:block xl:hidden"
           />
-          <Image
-            width={400}
-            height={400}
-            src="/Bijeesh.png"
-            alt="profile"
-            className="  shadow-2xl w-xs md:max-w-sm hidden xl:block"
-          />
+
+          {/* Large screens (stick to bottom without losing quality) */}
+          <div className="relative  w-[31vw]   hidden xl:block">
+            <Image
+              src="/Bijeesh (3).png"
+              alt="profile"
+              width={900}
+              height={800}
+              className=""
+            />
+          </div>
         </motion.div>
+
         <motion.div
-          initial={{ opacity: 0, x:-100, scale:.5 }}
-          animate={{ opacity: 1, x:0, scale:1 }}
+          initial={{ opacity: 0,  }}
+          animate={{ opacity: 1,  }}
           transition={{ duration: 1 }}
         >
-          <div className=" flex flex-col gap-5">
-            <h1 className="text-5xl md:text-8xl font-bold text-orange-500">
+          <div className="flex  flex-col gap-5">
+            <h1 className="text-4xl md:text-7xl font-bold text-orange-500">
               Hello!
             </h1>
-            <h1 className=" text-2xl  sm:text-5xl md:text-6xl font-bold ">
+            <h1 className="text-2xl text-black sm:text-5xl font-bold">
               I<span className="text-blue-500">&apos;</span>m Bijeesh, a Mern
               Stack Developer
             </h1>
           </div>
-          <div className=" mt-7 flex items-center gap-6">
+
+          <div className="mt-7 flex items-center gap-6">
             <a
               href="/Bijeesh M.pdf"
               download
-              className=" bg-white py-2 px-3 text-black rounded-sm  flex w-fit items-center gap-2"
+              className="bg-black py-2 px-3 text-white rounded-sm flex w-fit items-center gap-2"
             >
               <p>Download CV</p> <FaDownload />
             </a>
             <a href="https://www.linkedin.com/in/bijeeshm" target="blank">
-              <FaLinkedin color="white" size={30} />
+              <FaLinkedin color="black" size={30} />
             </a>
             <a href="https://github.com/bijeesh-m" target="blank">
-              <FaGithub color="white" size={30} />
+              <FaGithub color="black" size={30} />
             </a>
           </div>
         </motion.div>

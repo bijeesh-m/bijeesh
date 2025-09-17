@@ -2,105 +2,91 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // delay between each icon
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const Skills = () => {
   return (
-    <motion.div
-      initial={{ x: 200,  }}
-      whileInView={{ x: 0, opacity: 1 }}
-      transition={{duration:.8}}
-      className=" px-5 md:px-16"
-    >
-      <div className=" md:py-10 w-full">
-        <h1 className=" text-5xl my-20">Skills</h1>
-        <div className=" grid items-center gap-20 justify-center grid-cols-3 sm:grid-cols-4 md:grid-cols-5">
-          <motion.div
-            className="  w-fit"
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
+    <div className="px-5 md:px-16 md:pb-20 bg-gradient-to-br from-rose-100 to-white text-black font-mono font-bold min-h-screen lg:px-24">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="md:py-10 w-full">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-5xl my-20"
           >
-            <Image width={100} height={100} src="/node.svg" alt="node" />
-          </motion.div>{" "}
+           Technical Skills & Tools
+          </motion.h1>
+
+          {/* Container with staggered children */}
           <motion.div
-            className="  w-fit"
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
+            className="grid items-center gap-20 justify-center grid-cols-3 sm:grid-cols-4 md:grid-cols-5"
+            variants={containerVariants}
           >
-            <Image width={100} height={100} src="/react.svg" alt="react" />
-          </motion.div>{" "}
-          <motion.div
-            className="  w-fit"
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image width={100} height={100} src="/mongodb.svg" alt="mongodb" />
-          </motion.div>{" "}
-          <motion.div
-            className="  w-fit"
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image
-              className=" bg-white rounded-full p-2"
-              width={100}
-              height={100}
-              src="/express.svg"
-              alt="express"
-            />
-          </motion.div>{" "}
-          <motion.div
-            className="  w-fit "
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image
-              className=" bg-white rounded-full"
-              width={100}
-              height={100}
-              src="/next-js.svg"
-              alt="nextjs"
-            />
-          </motion.div>
-          <motion.div
-            className="  w-fit "
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image
-              width={100}
-              height={100}
-              src="/javascript.svg"
-              alt="javascript"
-            />
-          </motion.div>
-          <motion.div
-            className="  w-fit "
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image width={100} height={100} src="/html.svg" alt="html" />
-          </motion.div>
-          <motion.div
-            className="  w-fit"
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image width={100} height={100} src="/redux.svg" alt="redux" />
-          </motion.div>{" "}
-          <motion.div
-            className="  w-fit"
-            whileHover={{ scale: [null, 1.2, 1.1] }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image
-              width={100}
-              height={100}
-              src="/tailwind.svg"
-              alt="taliwind"
-            />
+            {/* Each skill icon */}
+            {[
+              { src: "/node.svg", alt: "node" },
+              { src: "/react.svg", alt: "react" },
+              { src: "/mongodb.svg", alt: "mongodb" },
+              {
+                src: "/express.svg",
+                alt: "express",
+                extra: "bg-white rounded-full p-2",
+              },
+              {
+                src: "/next-js.svg",
+                alt: "nextjs",
+                extra: "bg-white rounded-full",
+              },
+              { src: "/javascript.svg", alt: "javascript" },
+              { src: "/html.svg", alt: "html" },
+              { src: "/css.svg", alt: "css" },
+              { src: "/redux.svg", alt: "redux" },
+              { src: "/tailwind.svg", alt: "tailwind" },
+              { src: "/jquery.svg", alt: "jquery" },
+              { src: "/docker.svg", alt: "docker" },
+              { src: "/postgresql.svg", alt: "postgresql" },
+              { src: "/figma.svg", alt: "figma" },
+              { src: "/postman.svg", alt: "postman" },
+            ].map((skill, i) => (
+              <motion.div
+                key={i}
+                className="w-fit"
+                variants={itemVariants}
+                whileHover={{ scale: [null, 1.2, 1.1] }}
+                transition={{ duration: 0.3 }}
+              >
+                <Image
+                  width={70}
+                  height={70}
+                  src={skill.src}
+                  alt={skill.alt}
+                  className={skill.extra || ""}
+                />
+              </motion.div>
+            ))}
           </motion.div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

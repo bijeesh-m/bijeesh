@@ -1,72 +1,134 @@
-import React from "react";
+"use client";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Contact = () => {
-    return (
-        <div className=" px-5 md:px-16">
-            <section className=" bg-transparent" id="contact">
-                <div className="py-8 lg:py-16  mx-auto max-w-screen-md">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold  text-gray-900 dark:text-white">
-                        Contact Me
-                    </h2>
-                    <p className="mb-8 lg:mb-16 font-light  text-gray-500 dark:text-gray-400 sm:text-xl">
-                        Want to send a message? Need more details about me? Let me know.
-                    </p>
-                    <form className="space-y-8">
-                        <div>
-                            <label
-                                htmlFor="email"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                            >
-                                Your email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                                placeholder="name@gmail.com"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label
-                                htmlFor="subject"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                            >
-                                Subject
-                            </label>
-                            <input
-                                type="text"
-                                id="subject"
-                                className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                                placeholder="Let me know how i can help you"
-                                required
-                            />
-                        </div>
-                        <div className="sm:col-span-2">
-                            <label
-                                htmlFor="message"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-                            >
-                                Your message
-                            </label>
-                            <textarea
-                                id="message"
-                                rows="6"
-                                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Leave a comment..."
-                            />
-                        </div>
-                        <button
-                            type="submit"
-                            className="py-3 px-5 text-sm font-medium text-center text-white bg-blue-900 rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                        >
-                            Send message
-                        </button>
-                    </form>
-                </div>
-            </section>
-        </div>
-    );
+  const [formData, setFormData] = useState({
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("✅ Message sent successfully!");
+        setFormData({ email: "", subject: "", message: "" });
+      } else {
+        setStatus("❌ Failed to send message.");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("⚠️ Something went wrong.");
+    }
+  };
+
+  return (
+    <section
+      id="contact"
+      className="relative font-mono py-20 px-6 md:px-16 bg-gradient-to-br from-white via-red-50 to-rose-100"
+    >
+      {/* Decorative blobs */}
+      <div className="relative mx-auto max-w-screen-md  backdrop-blur-md rounded-2xl  p-8 md:p-12">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-4 text-4xl font-extrabold text-center text-gray-900"
+        >
+          Contact Me
+        </motion.h2>
+        <p className="mb-8 text-center text-gray-600">
+          Want to send a message? Need more details about me? Let me know.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label
+              htmlFor="email"
+              className="block mb-2 text-gray-700 text-sm font-medium "
+            >
+              Your email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="name@gmail.com"
+              required
+              className="w-full p-3 bg-transparent rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="subject"
+              className="block mb-2 text-sm font-medium text-gray-700"
+            >
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              placeholder="Let me know how I can help you"
+              required
+              className="w-full bg-transparent p-3 rounded-lg border  focus:ring-2 focus:ring-blue-400 focus:outline-none shadow-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="message"
+              className="block mb-2 text-sm font-medium text-gray-700"
+            >
+              Your message
+            </label>
+            <textarea
+              id="message"
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Leave a comment..."
+              required
+              className="w-full bg-transparent p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow-sm"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-3 px-5 text-white font-medium rounded-lg bg-gradient-to-r from-black to-black hover:opacity-90 transition"
+          >
+            Send Message
+          </button>
+        </form>
+
+        {status && (
+          <p className="mt-4 text-center text-sm font-medium text-gray-700">
+            {status}
+          </p>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default Contact;

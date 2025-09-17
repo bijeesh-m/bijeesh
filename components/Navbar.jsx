@@ -4,17 +4,24 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [show, setShow] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = () => {
     if (typeof window !== "undefined") {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY === 0) {
-        setShow(false);
+      // Add background when scrolled
+      setScrolled(currentScrollY > 0);
+
+      // Show/hide based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // scrolling down
+        setShowNavbar(false);
       } else {
-        setShow(true);
+        // scrolling up
+        setShowNavbar(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -41,13 +48,17 @@ const Navbar = () => {
   return (
     <motion.div
       initial={{ y: -100, opacity: 0 }}
-      animate={show ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
+      animate={{ y: showNavbar ? 0 : -100, opacity: showNavbar ? 1 : 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0  left-0 w-full z-50 bg-white backdrop-blur-md shadow-sm"
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        scrolled ? "bg-white shadow-sm backdrop-blur-md" : "bg-transparent"
+      }`}
     >
-      <nav style={{textShadow:"1px 1px 1px 5px "}} className="max-w-7xl mx-auto px-4 text-black sm:px-6 md:px-16 h-16 flex items-center justify-between text-sm font-medium ">
-        <div className="text-xl font-extrabold ">Bijeesh</div>
-        <ul className="flex space-x-6">
+      <nav
+        className="max-w-7xl font-mono mx-auto px-4 text-black sm:px-6 md:px-16 lg:px-24 h-24 flex items-center justify-between text-sm font-medium"
+      >
+        <div className="text-2xl font-mono font-bold">Bijeesh</div>
+        <ul className="flex space-x-6 text-xl">
           <li>
             <button
               onClick={() => scrollTo("work")}
