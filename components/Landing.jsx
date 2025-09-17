@@ -6,18 +6,18 @@ import { FaDownload, FaLinkedin, FaGithub } from "react-icons/fa";
 const Landing = () => {
   return (
     <div className="hero w-screen font-mono  bg-gradient-to-br from-white to-rose-200 h-screen px-5 md:px-48">
-      <div className="relative flex items-center h-full flex-col lg:flex-row-reverse gap-10">
+      <div className="relative flex items-center justify-center sm:justify-start gap-8 sm:gap-0  h-full flex-col lg:flex-row-reverse">
         <motion.div
-          className="w-1/2 relative h-full flex items-end justify-center"
-          initial={{ opacity: 0,  }}
-          animate={{ opacity: 1,}}
+          className="w-1/2 relative md:h-full flex items-center md:items-end justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           {/* Small screens */}
           <Image
             width={200}
             height={200}
-            src="/Bijeesh.png"
+            src="/Bijeesh (3).png"
             alt="profile"
             className="w-xs md:hidden"
           />
@@ -26,7 +26,7 @@ const Landing = () => {
           <Image
             width={350}
             height={350}
-            src="/Bijeesh.png"
+            src="/Bijeesh (3).png"
             alt="profile"
             className="w-xs md:max-w-sm hidden md:block xl:hidden"
           />
@@ -44,21 +44,21 @@ const Landing = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0,  }}
-          animate={{ opacity: 1,  }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="flex  flex-col gap-5">
+          <div className="flex items-center  flex-col gap-1   sm:gap-5">
             <h1 className="text-4xl md:text-7xl font-bold text-orange-500">
               Hello!
             </h1>
-            <h1 className="text-2xl text-black sm:text-5xl font-bold">
+            <h1 className="text-2xl text-center text-black sm:text-5xl font-bold">
               I<span className="text-blue-500">&apos;</span>m Bijeesh, a Mern
               Stack Developer
             </h1>
           </div>
 
-          <div className="mt-7 flex items-center gap-6">
+          <div className="mt-7 flex justify-center items-center sm:items-start gap-6">
             <a
               href="/Bijeesh M.pdf"
               download

@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative font-mono h-screen flex items-center bg-gradient-to-br from-white to-rose-100 w-full py-20 px-6 md:px-16 lg:px-24"
+      className="relative font-mono min-h-screen flex items-center bg-gradient-to-br from-white to-rose-100 w-full py-20 px-6 md:px-16 lg:px-24"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
         {/* Profile Image */}

@@ -71,7 +71,7 @@ const Projects = () => {
       className="bg-gradient-to-br font-mono from-white to-rose-100 w-full px-5 md:px-16 lg:px-24  space-y-20 py-20  project-font  "
       id="work"
     >
-      <motion.h1 {...animationProps} className=" text-5xl text-black w-full ">
+      <motion.h1 {...animationProps} className=" text-3xl sm:text-5xl text-black w-full ">
         Projects
       </motion.h1>
       {/* <motion.hr {...animationProps} className="sm:m-1 m-0 " /> */}

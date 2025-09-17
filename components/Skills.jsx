@@ -19,19 +19,19 @@ const itemVariants = {
 
 const Skills = () => {
   return (
-    <div className="px-5 md:px-16 md:pb-20 bg-gradient-to-br from-rose-100 to-white text-black font-mono font-bold min-h-screen lg:px-24">
+    <div className="px-5 py-20 md:px-16 md:pb-20 bg-gradient-to-br from-rose-100 to-white text-black font-mono font-bold min-h-screen lg:px-24">
       <motion.div
         initial="hidden"
         whileInView="visible"
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="md:py-10 w-full">
+        <div className=" md:py-10 w-full">
           <motion.h1
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-5xl my-20"
+            className="sm:text-5xl text-3xl mb-10 sm:mb-20 "
           >
            Technical Skills & Tools
           </motion.h1>

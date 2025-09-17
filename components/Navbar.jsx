@@ -57,8 +57,8 @@ const Navbar = () => {
       <nav
         className="max-w-7xl font-mono mx-auto px-4 text-black sm:px-6 md:px-16 lg:px-24 h-24 flex items-center justify-between text-sm font-medium"
       >
-        <div className="text-2xl font-mono font-bold">Bijeesh</div>
-        <ul className="flex space-x-6 text-xl">
+        <div className=" text-lg sm:text-2xl font-mono font-bold">Bijeesh</div>
+        <ul className="flex space-x-6 sm:text-xl">
           <li>
             <button
               onClick={() => scrollTo("work")}
