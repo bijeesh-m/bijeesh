@@ -48,17 +48,17 @@ const Landing = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="flex items-center  flex-col gap-1   sm:gap-5">
+          <div className="flex items-center sm:items-start  flex-col gap-1   sm:gap-5">
             <h1 className="text-4xl md:text-7xl font-bold text-orange-500">
               Hello!
             </h1>
-            <h1 className="text-2xl text-center text-black sm:text-5xl font-bold">
+            <h1 className="text-2xl text-center sm:text-start text-black sm:text-5xl font-bold">
               I<span className="text-blue-500">&apos;</span>m Bijeesh, a Mern
               Stack Developer
             </h1>
           </div>
 
-          <div className="mt-7 flex justify-center items-center sm:items-start gap-6">
+          <div className="mt-7 flex justify-center items-center sm:justify-start gap-6">
             <a
               href="/Bijeesh M.pdf"
               download
